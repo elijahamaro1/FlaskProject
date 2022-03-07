@@ -42,4 +42,30 @@ def fact(num):
         return "ERROR: That is not a appropriate value! It must be greater then 0 and be a whole number (a integer)"
 
 
+@app.route('/fibonacci/<int:x>')
+def fib(x):
+  return str(calcfib(x))
+
+def calcfib(n):
+  n1, n2 = 0, 1
+  count = 0
+  
+  # check if the number of terms is valid
+  if n <= 0:
+     return "Please enter a positive integer"
+  # if there is only one term, return n1
+  elif n == 1:
+     return "Fibonacci sequence: " + str(n1)
+  # generate fibonacci sequence
+  else:
+     while n > count:
+         nth = n1 + n2
+         # update values
+         n1 = n2
+         n2 = nth
+         count += 1
+         return "Fibonacci sequence:" + str(n1)
+
+
+
 app.run(host='0.0.0.0', port=5080)
