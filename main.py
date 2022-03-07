@@ -69,3 +69,24 @@ def calcfib(n):
 
 
 app.run(host='0.0.0.0', port=5080)
+
+#returns boolean value on whether the input is a prime number or not
+@app.route('/is-prime/<int>')
+def prime(number):
+    # reusing some parts of the code from the factorial section, as it is effective and useful for the prime section
+    try: 
+        number = int(number)
+    except:
+        return "ERROR: The value you have inserted is NOT a number! Please insert an INTEGER greater than 0"
+    if number >1:
+        for i in range(2, int(number/2)+1):
+            if (number % i) == 0:
+                return False
+                break
+        else:
+            return True
+    else:
+        return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1"
+    
+app.run(host='0.0.0.0', port=5080)
+    
