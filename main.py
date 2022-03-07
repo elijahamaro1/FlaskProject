@@ -44,34 +44,31 @@ def fact(num):
 
 @app.route('/fibonacci/<int:x>')
 def fib(x):
-  return str(calcfib(x))
+    return str(calcfib(x))
+
 
 def calcfib(n):
-  n1, n2 = 0, 1
-  count = 0
-  
-  # check if the number of terms is valid
-  if n <= 0:
-     return "Please enter a positive integer"
-  # if there is only one term, return n1
-  elif n == 1:
-     return "Fibonacci sequence: " + str(n1)
-  # generate fibonacci sequence
-  else:
-     while n > count:
-         nth = n1 + n2
-         # update values
-         n1 = n2
-         n2 = nth
-         count += 1
-         return "Fibonacci sequence:" + str(n1)
+    fiblist = []
+    n1, n2 = 0, 1
+    count = 0
 
-
-
-app.run(host='0.0.0.0', port=5080)
-
-#returns boolean value on whether the input is a prime number or not
-@app.route('/is-prime/<int>')
+    # check if the number of terms is valid
+    if n <= 0:
+        return "Please enter a positive integer"
+    # if there is only one term, return n1
+    elif n == 1:
+        return "Fibonacci sequence: " + str(n1)
+    # generate fibonacci sequence
+    else:
+        while n > count:
+            nth = n1 + n2
+            # update values
+            fiblist.append(n1)
+            n1 = n2
+            n2 = nth
+            count += 1
+        return "Fibonacci sequence:" + str(fiblist)
+@app.route('/is-prime/<number>')
 def prime(number):
     # reusing some parts of the code from the factorial section, as it is effective and useful for the prime section
     try: 
@@ -81,10 +78,10 @@ def prime(number):
     if number >1:
         for i in range(2, int(number/2)+1):
             if (number % i) == 0:
-                return False
+                return "False! This value is not Prime!"
                 break
         else:
-            return True
+            return "True! This value is Prime!"
     else:
         return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1"
     
