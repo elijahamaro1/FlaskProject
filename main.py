@@ -46,7 +46,7 @@ app.run(host='0.0.0.0', port=5080)
 
 #returns boolean value on whether the input is a prime number or not
 @app.route('/is-prime/<int>')
-def prime(number)
+def prime(number):
     # reusing some parts of the code from the factorial section, as it is effective and useful for the prime section
     try: 
         number = int(number)
