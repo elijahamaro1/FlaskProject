@@ -18,9 +18,7 @@ def md5machine(string):
     return (hashed.hexdigest())
 
 #makes factorials of a positive integer (Problem 2)
-@app.route(
-    '/factorial/<num>'
-)  #i don't know how to make exceptions WITHIN the url, so what i'm going to do is take any possible item from the user and then see if it works within normal python code
+@app.route('/factorial/<num>')  #i don't know how to make exceptions WITHIN the url, so what i'm going to do is take any possible item from the user and then see if it works within normal python code
 def fact(num):
     try:  #this exists incase they put in a string, and catches it and makes a different error message then if they had inserted a bad number.
         num = float(num)
