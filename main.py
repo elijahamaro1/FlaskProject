@@ -82,6 +82,14 @@ def prime(number):
             return "True! This value is Prime!"
     else:
         return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1"
-    
+@app.route('/slack/<message>')
+def slack(message):
+  url = 'https://hooks.slack.com/services/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'
+  try: 
+    requests.post(url, json={'text': message})
+    return "Message Sent Successfully!"
+  except:
+    return "Messaged Failed to Send!"
+
 app.run(host='0.0.0.0', port=5080)
     
