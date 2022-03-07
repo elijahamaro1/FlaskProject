@@ -62,4 +62,5 @@ def prime(number)
     else:
         return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1"
     
+app.run(host='0.0.0.0', port=5080)
     
