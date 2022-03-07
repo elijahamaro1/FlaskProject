@@ -43,3 +43,7 @@ def fact(num):
 
 
 app.run(host='0.0.0.0', port=5080)
+
+#returns boolean value on whether the input is a prime number or not
+@app.route('/is-prime/<int>')
+def prime(number)
