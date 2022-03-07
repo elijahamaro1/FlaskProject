@@ -23,7 +23,7 @@ def fact(num):
     try:  #this exists incase they put in a string, and catches it and makes a different error message then if they had inserted a bad number.
         num = float(num)
     except:
-        return "ERROR: The value you have inserted is not a number! Please insert a integer greater then 0"
+        return "ERROR: The value you have inserted is not a number! Please insert an integer greater then 0."
     #okay so in order to check if its a int, we actually do need to make it a float which i know is weird but trust me
     intcheck = num.is_integer()
     if num >= 0 and intcheck:  #for this i'm going to say that 0 counts as a positive, since 1 is the factorial of 0
@@ -37,7 +37,7 @@ def fact(num):
             return "The factorial of " + str(int(num)) + " is " + str(fact)
 
     else:
-        return "ERROR: That is not a appropriate value! It must be greater then 0 and be a whole number (a integer)"
+        return "ERROR: That is not an appropriate value! It must be greater than 0 and a whole number (an integer)"
 
 
 @app.route('/fibonacci/<int:x>')
@@ -65,14 +65,14 @@ def calcfib(n):
             n1 = n2
             n2 = nth
             count += 1
-        return "Fibonacci sequence:" + str(fiblist)
+        return "Fibonacci sequence: " + str(fiblist)
 @app.route('/is-prime/<number>')
 def prime(number):
     # reusing some parts of the code from the factorial section, as it is effective and useful for the prime section
     try: 
         number = int(number)
     except:
-        return "ERROR: The value you have inserted is NOT a number! Please insert an INTEGER greater than 0"
+        return "ERROR: The value you have inserted is NOT a number! Please insert an INTEGER greater than 0."
     if number >1:
         for i in range(2, int(number/2)+1):
             if (number % i) == 0:
@@ -81,7 +81,7 @@ def prime(number):
         else:
             return "True! This value is Prime!"
     else:
-        return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1"
+        return "ERROR: The value you have inserted is not a PRIME number! Please insert an integer GREATER than 1."
 @app.route('/slack/<message>')
 def slack(message):
   url = 'https://hooks.slack.com/services/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'
